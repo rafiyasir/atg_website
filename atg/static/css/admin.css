@@ -1,0 +1,43 @@
+#header{
+    height: 50px;
+    background: #7bc45e;
+    color: #fff;
+}
+
+#branding h1{
+    color: #fff;
+}
+
+a:link,
+a:visited{
+    color: #7bc45e;
+}
+
+div.breadcrumbs {
+    background: #6c7377;
+    color: #7bc45e;
+}
+
+div.breadcrumbs a {
+    color: #fff;
+}
+
+.module h2, .module caption, .inline-group h2{
+  background: #6c7377;  
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #7bc45e;
+    color: #fff;
+}
+.button.default, input[type=submit].default, .submit-row input.default {
+    float: right;
+    border: none;
+    font-weight: 400;
+    background: #6c7377;
+}
+@media (max-width: 767px){
+    #header,#content,#footer {
+        padding: 50px !important;
+    }
+}

@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Keywords" content="Promotional Bags, Promotional Bag, Jute Bag, Thaila, Promotional Items, Promotional Item, Backpack, corporate gifts suppliers, corporate gifts suppliers Delhi, corporate gift company, corporate gifts printing,  printing solutions Delhi, printing solutions India corporate gifting companies, corporate gifts, corporate gifts companies, corporate gifting company, corporate gifts in Delhi">
+    <meta name="description" content="We are Manufacturer of all types of bags, Thailas, packaging and promotional items. and also provide high quality gift items and much more">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{%static 'css/all.css' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}">
+    <!-- Custom -->
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+    <!--Lightbox-->
+    <link rel="stylesheet" href="{%static 'css/lightbox.min.css' %}">
+      <!--Logo-->
+  <link rel = "icon" href ="{%static 'img/logo.jpg' %}" type = "image/x-icon" >
+
+    <title>Atg Khidmat {% block title %} {% endblock %}</title>
+</head>
+<body>
+    <!--Topbar-->
+    {% include 'partials/_topbar.html' %}    
+    <!--Navbar-->
+    {% include 'partials/_navbar.html' %}  
+
+    {% block content %} {% endblock %}
+
+    <!--Footer-->
+    {% include 'partials/_footer.html' %}
+
+    <script src="{%static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{%static 'js/main.js' %}"></script>
+    <script src="{%static 'js/lightbox.min.js' %}"></script>
+</body>
+</html>

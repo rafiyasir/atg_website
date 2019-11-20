@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{%load static %}
+
+{% block title %} | Products {% endblock %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">Browse Our Products</h1>
+          <p class="lead">We provide Bags, Promotional items, printing items, Gift items and much more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> Browse Products</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  {% for content in contents %}
+  <!-- Listings -->
+  <section id="listings" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-3">Our Products</h3>
+      <div class="row">
+        <!-- Listing 1 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{{content.product_1_photo.url}}" style="height:240px;" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Bags</h4>
+              </div>
+              <hr>
+              <div class="row py-2  text-secondary">
+                <div class="col-12 ">
+              <p>{{content.product_1_description}}</p></div>
+              </div>
+              <hr>
+              <a href="{% url 'bags' %}" class="btn btn-custom btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Listing 2 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{{content.product_2_photo.url}}" style="height:240px;" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Promotional Items</h4>
+              </div>
+              <hr>
+              <div class="row py-2  text-secondary">
+                <div class="col-12 ">
+              <p>{{content.product_2_description}}</p></div>
+              </div>
+              <hr>
+              <a href="{% url 'promotionals' %}" class="btn btn-custom btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+        <!-- Listing 3 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{{content.product_3_photo.url}}" style="height:240px;" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Miscellaneous Items</h4>
+              </div>
+              <hr>
+              <div class="row py-2  text-secondary">
+                <div class="col-12 ">
+              <p>{{content.product_3_description}}</p></div>
+              </div>
+              <hr>
+              <a href="{% url 'misc_items' %}" class="btn btn-custom btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {% endfor %}
+
+{% endblock %}

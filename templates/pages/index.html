@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+
+<section id="showcase">
+    <div class="container text-center">
+      <div class="home-search p-5">
+        <div class="overlay p-5">
+          <h1 class="display-4 mb-4">
+            Searching Just Got So Easy
+          </h1>
+
+          <p class="lead">We provide a lot of products such as bags, promotional items and more.
+            And below is the search bar so you can find our products in a very short time.</p>
+          <div class="search">
+            <form action="#">
+              <!--Form Row 1-->
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label class="sr-only">Catagories</label>
+                  <select name="bedrooms" class="form-control">
+                    <option selected="true" disabled="disabled">Catagories (All)</option>
+      
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <select name="price" class="form-control" id="type">
+                    <option selected="true" disabled="disabled">Sub Catagories</option>
+                    
+                  </select>
+                </div>
+              </div>
+              <!-- Form Row 2 -->
+              <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <label class="sr-only">Keywords</label>
+                  <input type="text" name="keywords" class="form-control" placeholder="Keyword (size,type, etc)">
+                </div>
+              </div>
+              <button class="btn btn-custom btn-block mt-4" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  {% include 'partials/_alerts.html' %}
+
+  {% for content in contents %}
+  <!-- Listings -->
+  <section id="listings" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-3">Our Products</h3>
+      <div class="row">
+        <!-- Listing 1 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{{content.product_1_photo.url}}" style="height:240px;" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Bags</h4>
+              </div>
+              <hr>
+              <div class="row py-2  text-secondary">
+                <div class="col-12 ">
+              <p>{{content.product_1_description}}</p></div>
+              </div>
+              <hr>
+              <a href="{% url 'bags' %}" class="btn btn-custom btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Listing 2 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{{content.product_2_photo.url}}" style="height:240px;" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Promotional Items</h4>
+              </div>
+              <hr>
+              <div class="row py-2  text-secondary">
+                <div class="col-12 ">
+              <p>{{content.product_2_description}}</p></div>
+              </div>
+              <hr>
+              <a href="{% url 'promotionals' %}" class="btn btn-custom btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+        <!-- Listing 3 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{{content.product_3_photo.url}}" style="height:240px;" alt="">
+            <div class="card-body">
+              <div class="listing-heading text-center">
+                <h4 class="text-primary">Miscellaneous Items</h4>
+              </div>
+              <hr>
+              <div class="row py-2  text-secondary">
+                <div class="col-12 ">
+              <p>{{content.product_3_description}}</p></div>
+              </div>
+              <hr>
+              <a href="{% url 'misc_items' %}" class="btn btn-custom btn-block">More Info</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 bg-secondary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <i class="fas fa-check-square fa-4x mr-4"></i>
+          <hr>
+          <h3>Quality</h3>
+          <p>{{content.quality_content}}</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-tasks fa-4x mr-4"></i>
+          <hr>
+          <h3>Services</h3>
+          <p>{{content.services_content}}</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-clock fa-4x mr-4"></i>
+          <hr>
+          <h3>On Time</h3>
+          <p>{{content.on_time_content}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endfor %}
+
+{% endblock %}
