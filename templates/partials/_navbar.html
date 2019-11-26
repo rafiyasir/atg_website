@@ -28,14 +28,37 @@
                   >
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                   </li>
-                  <li 
-                  {%if 'products' in  request.path %}
-                  class="nav-item active mr-3"
-                  {%else%}
-                  class="nav-item mr-3"
-                  {%endif%}
-                  >
-                    <a class="nav-link" href="{% url 'products' %}">Products</a>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > Products </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" tabindex="1" id="bags">Bags</a>
+                            <ul class="dropdown-menu">
+                              {% if drpdwn_bags %}
+                                {% for bag in drpdwn_bags %}
+                                <li><a class="dropdown-item" href="{% url 'bag' bag.id %}" tabindex="1">{{bag.title}}</a></li>
+                                {% endfor %}
+                              {% endif %}
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" tabindex="1">Promotional</a>
+                          <ul class="dropdown-menu">
+                              {% if drpdwn_promos %}
+                                {% for promo in drpdwn_promos %}
+                                <li><a class="dropdown-item" href="{% url 'promotional' promo.id %}" tabindex="1">{{promo.title}}</a></li>
+                                {% endfor %}
+                              {% endif %}
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#" tabindex="1">Miscellaneous</a>
+                          <ul class="dropdown-menu">
+                              {% if drpdwn_miscs %}
+                                {% for misc in drpdwn_miscs %}
+                                <li><a class="dropdown-item" href="{% url 'misc_item' misc.id %}" tabindex="1">{{misc.title}}</a></li>
+                                {% endfor %}
+                              {% endif %}
+                            </ul>
+                        </li>
+                    </ul>
                   </li>
                   <li 
                   {%if 'clients' in  request.path %}
@@ -45,6 +68,15 @@
                   {%endif%}
                   >
                     <a class="nav-link" href="{% url 'clients' %}">Clients</a>
+                  </li>
+                  <li 
+                  {%if 'contact-us' in  request.path %}
+                  class="nav-item active mr-3"
+                  {%else%}
+                  class="nav-item mr-3"
+                  {%endif%}
+                  >
+                    <a class="nav-link" href="{% url 'contactus' %}">Contact Us</a>
                   </li>
                 </ul>
         
@@ -88,7 +120,7 @@
                     {%endif%}
                     >
                       <a class="nav-link" href="{% url 'login' %}">
-                        <i class="fas fa-sign-in-alt"></i>Login</a>
+                        <i class="fas fa-sign-in-alt"></i> Login</a>
                     </li>
                   {% endif %}
                 </ul>

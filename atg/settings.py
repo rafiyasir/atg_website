@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'contactUs.apps.ContactusConfig',
     'contactsM.apps.ContactsmConfig',
     'contactsP.apps.ContactspConfig',
     'contacts.apps.ContactsConfig',
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'promotionals.apps.PromotionalsConfig',
     'miscellaneous.apps.MiscellaneousConfig',
     'pages.apps.PagesConfig',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -71,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'pages.context_processors.products_dropdown',
             ],
         },
     },
@@ -145,6 +151,6 @@ MESSAGE_TAGS = {
 }
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass

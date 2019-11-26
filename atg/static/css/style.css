@@ -116,3 +116,34 @@ a .breadcrumb{
 .link-color{
     color: #7bc45e !important;
 }
+
+/*Dropdown list */
+
+.navbar-nav li:hover > ul.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu {
+  position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top:-6px;
+}
+
+/* rotate caret on hover */
+.dropdown-menu > li > a:hover:after {
+  text-decoration: underline;
+  transform: rotate(-90deg);
+} 
+
+a[tabindex]:focus {
+  background-color: #7bc45e !important;
+  outline: none;
+}
+
+/* maps */
+.no-gutters>.col, .no-gutters>[class*=col-] {
+  padding-right: 0;
+  padding-left: 0;
+}
